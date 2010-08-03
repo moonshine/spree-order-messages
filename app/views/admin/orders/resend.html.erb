@@ -1,0 +1,13 @@
+<h4><%= t('message') %></h4>
+<% form_for(@order, :url => resend_order_admin_order_url(@order), :html => { :method => :post}) do %>
+  <div class="order-add-comment">
+    <%= hidden_field_tag 'comment[commentable_id]', @order.id %>
+    <%= hidden_field_tag 'comment[commentable_type]', @order.class %>
+    <%= hidden_field_tag 'comment[user_id]', current_user.id %>
+    <%= text_area_tag 'comment[comment]', nil, :style => 'width:100%; height:100px;' %>
+    <p class="form-buttons">
+      <%= button t('resend') %>
+      <%= t("or") %> <%= link_to t("actions.cancel"), edit_admin_order_url(@order) %>
+    </p>
+  </div>
+<% end %>

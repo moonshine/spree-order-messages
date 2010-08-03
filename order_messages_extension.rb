@@ -13,5 +13,6 @@ class OrderMessagesExtension < Spree::Extension
   def activate
     Order.send(:include, Spree::OrderMessages::Order)
     Admin::OrdersController.send(:include, Spree::OrderMessages::Admin::OrdersController)
+    OrderMailer.send(:include, Spree::OrderMessages::OrderMailer)
   end
 end
