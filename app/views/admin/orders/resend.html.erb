@@ -1,3 +1,5 @@
+<%= render :partial => 'admin/shared/order_tabs', :locals => {:current => "Order Details"} %>
+
 <h4><%= t('message') %></h4>
 <% form_for(@order, :url => resend_order_admin_order_url(@order), :html => { :method => :post}) do %>
   <div class="order-add-comment">
