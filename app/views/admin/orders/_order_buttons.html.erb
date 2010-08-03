@@ -1,0 +1,6 @@
+<%= render 'comment' %>
+<p class="form-buttons">
+  <%= button @order.in_progress? ? t('continue') : t('update') %>
+  <%= t("or") %> <%= button t('add_comment'), nil, 'submit', :name => 'add_comment' %>
+  <%= t("or") %> <%= link_to t("actions.cancel"), admin_orders_url %>
+</p>

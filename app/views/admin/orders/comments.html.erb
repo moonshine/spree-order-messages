@@ -1,0 +1,23 @@
+<%= render :partial => 'admin/shared/order_tabs', :locals => {:current => t("message_history")} %>
+
+<h1><%= t("messages") %></h1>
+
+<table class="index">
+  <tr>
+    <th style="width:140px;"><%= "#{t('spree.date')}/#{t('spree.time')}" %></th>
+    <th><%= t("message") %></th>
+  </tr>
+  <% @order.comments.reverse.each_with_index do |comment, index| %>
+    <tr id="<%= dom_id(comment) %>">
+      <td><%= comment.created_at.to_formatted_s(:long) %></td>
+      <td>
+        <div id="order-comment-header-<%= index %>" class="order-comment-header">
+          <strong><%= comment.user.email%> sent:</strong>
+        </div>
+        <div id="order-comment-body-<%= index %>" class="order-comment-body">
+          <%= comment.comment %>
+        </div>
+      </td>
+     </tr>
+  <% end %>
+</table>
